@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>載入失敗</title>
+</head>
+
+<body>
+
+    <h1 id="testTitle" onclick="clickTest()">testText</h1>
+
+    <script>
+        window.onload = function () {
+            alert("資料遺失，部分功能將無法使用");
+
+        }
+
+        function clickTest() {
+            alert("掰掰囉～"); 
+            window.close();
+        }
+
+
+    </script>
+</body>
+
+</html>

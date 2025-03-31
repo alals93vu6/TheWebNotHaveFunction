@@ -5,10 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>準備開始報告</title>
     <style>
-        
+        #reportInfo{
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            font-size: 80px;
+            transform: translateX(-50%);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        #gameStart{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 80px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1 id="reportInfo">AAAA</h1>
+    <h1 id="reportInfo">報告開始前，我需要徵求一名志願者！</h1>
+    <button id="gameStart" onclick="StartGame()">正式開始</button>
+
+    <script>
+        function StartGame() 
+        {
+            const newWindow = window.open("Level_1.html", "_blank");
+            setTimeout(() => {
+                ChangeTitle();
+            }, 5000);
+        }
+
+        function ChangeTitle()
+        {
+            document.getElementById("reportInfo").innerText = "非常感謝大家的聆聽！"
+            document.getElementById("gameStart").innerText = "再來一次"
+        }
+    </script>
 </body>
 </html>
