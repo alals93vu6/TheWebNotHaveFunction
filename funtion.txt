@@ -1,0 +1,5 @@
+關閉分頁
+function clickTest() {
+            alert("掰掰囉～"); 
+            window.close();
+        }

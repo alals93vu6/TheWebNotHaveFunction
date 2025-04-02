@@ -9,29 +9,10 @@
 </head>
 
 <body>
-    <h1 id="theTitle" onclick="clickLog()">OBJ</h1>
+    
 
     <script>
-        window.onload = function () {
-            const title = document.getElementById("theTitle");
-            title.style.left = "50%";
-            title.style.top = "50%";
-
-            title.addEventListener("mouseenter", changeLocation);
-        };
-
-        function changeLocation() {
-            const title = document.getElementById("theTitle");
-            let randomLeft = Math.floor(Math.random() * 51) + 25; // 25 ~ 75
-            let randomTop = Math.floor(Math.random() * 51) + 25;  // 25 ~ 75
-            title.style.left = randomLeft + "%";
-            title.style.top = randomTop + "%";
-        }
-
-        function clickLog()
-        {
-            alert("雅美跌");
-        }
+        
 
     </script>
 </body>

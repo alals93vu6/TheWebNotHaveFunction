@@ -1,0 +1,23 @@
+#theTitle {
+    position: absolute;
+    left: 50%;  
+    top: 55%;
+    font-size: 100px;
+    transition: left 2s ease, top 2s ease;  /* 加入滑順回歸動畫 */
+    cursor: pointer;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+  }
+
+#theOffScreen
+{
+    position: absolute;
+    left: 50%;  
+    top: 73%;
+    font-size: 70px;
+    cursor: pointer;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+}
