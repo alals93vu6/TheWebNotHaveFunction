@@ -9,6 +9,26 @@
 </head>
 
 <body>
+    <div id="maskA" class="mask"></div>
+    <div id="maskB" class="mask"></div>
+
+    <div id="gameScore">
+        <span>HI 114514</span>
+        <span style="margin-left: 20px; color: ＃C0C0C0;">000000</span>
+    </div>
+
+    <div id="theDinosaur">
+        <img src="./img/LV2/Dinosaur.png" />
+    </div>
+
+    <div id="TheCactus">
+        <img src="./img/LV2/Cactus.png" />
+    </div>
+
+    <div id="gameBackGround">
+        <img src="./img/LV2/GameBckGround.png" />
+    </div>
+
     <h2 id="theOffScreen"></h2> <!-- 旁白 -->
 
     <div id="errorScreen">
@@ -23,23 +43,34 @@
     </div>
 
     <script>
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                openMask();
+            }, 2000); // 10000 毫秒 = 10 秒
+        });
         var inputSpace = 0;
         function clickURL() {
             alert("無法切換網頁，因為沒有這個功能。")
         }
 
+        function openMask() {
+            document.getElementById("maskA").style.left = "-23vw";
+            document.getElementById("maskB").style.right = "-23vw";
+        }
+
         window.addEventListener("keydown", function (event) {
             if (event.code === "Space") {
                 inputSpace++;
-                if(inputSpace == 2)
-                {
+                if (inputSpace == 2) {
                     document.getElementById("theOffScreen").innerText = "空白鍵沒有那種功能，不要再按了！"
                     setTimeout(() => {
                         document.getElementById("theOffScreen").innerText = ""
-                    },2000)
+                    }, 2000)
                 }
             }
         });
+
+
 
     </script>
 </body>

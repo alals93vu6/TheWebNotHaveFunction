@@ -1,7 +1,6 @@
-#theOffScreen
-{
+#theOffScreen {
     position: absolute;
-    left: 50%;  
+    left: 50%;
     top: 73%;
     font-size: 70px;
     cursor: pointer;
@@ -10,29 +9,121 @@
     white-space: nowrap;
 }
 
+.mask {
+    position: fixed;
+    top: 0%;
+    width: 50%;
+    height: 250px;
+    background-color: white;
+    z-index: 3;
+  }
+  
+  #maskA {
+    left: 0;
+    transition: left 1.5s ease, top 1s ease;
+  }
+  
+  #maskB {
+    right: 0;
+    transition: right 1.5s ease, top 1s ease;
+  }
+
+#gameBackGround {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theDinosaur {
+    position: absolute;
+    top: 27%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#TheCactus {
+    position: absolute;
+    top: 27%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theDinosaur img{
+    image-rendering: pixelated;
+    width: auto;
+    height: auto;
+    max-width: 15%;
+}
+
+
+#TheCactus img {
+    image-rendering: pixelated;
+    width: auto;
+    height: auto;
+    max-width: 15%;
+}
+
+#gameBackGround img {
+    image-rendering: pixelated;
+    width: 700px;
+    height: 200px;
+}
+
+
 #errorScreen {
     font-family: "Arial", sans-serif;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-120%, -50%);
     color: #333;
     font-size: 16px;
     line-height: 1.6;
-    text-align: left; /* 讓整塊內容靠左 */
-    width: 300px;     /* 可依需求調整寬度 */
-  }
-  
-  #errorScreen h2 {
+    text-align: left;
+    /* 讓整塊內容靠左 */
+    width: 300px;
+    /* 可依需求調整寬度 */
+}
+
+#errorScreen h2 {
     font-size: 20px;
     font-weight: normal;
     margin-bottom: 10px;
-  }
-  
-  #errorScreen ul {
+}
+
+#errorScreen ul {
     list-style-type: disc;
     padding-left: 20px;
     margin: 0;
-  }
+}
 
-  
+#gameScore {
+    position: absolute;
+    top: 10%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    color: #666; /* 接近灰色字 */
+    letter-spacing: 2px;
+    font-weight: bold;
+    image-rendering: pixelated;
+  }
