@@ -9,9 +9,20 @@
 </head>
 
 <body>
-    <div id="theTitle"><h1  id="shakeObject" onclick="OnTitleClick()">這個網頁沒有功能</h1></div>
-    <h2 id="theOffScreen"></h2>
+    <div id="blackScreen"></div>
+    <div id="fakeLoading">
+        <img id="loader" src="./img/LV1/FakeLoading.png" />
+        <h2 id="loaderText">系統崩潰，請稍後...</h2>
+    </div>
 
+    <div id="fakeCrash">
+        <img src="./img/LV1/crash_loading.png" />
+    </div>
+    
+    <div id="theTitle">
+        <h1  id="shakeObject" onclick="OnTitleClick()">這個網頁沒有功能</h1>
+    </div>
+    <h2 id="theOffScreen"></h2>
     <div id="quitButton" class="exitOption">
         <br><br><br>
         <button class="optionButton" onclick="ExitOptionDetected()">離開網頁</button>
