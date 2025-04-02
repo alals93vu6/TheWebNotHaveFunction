@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>無法連接至伺服器</title>
     <link rel="stylesheet" href="./CSS/LV2/ForLV2.css">
 </head>
-<body> 
+
+<body>
+    <h2 id="theOffScreen"></h2> <!-- 旁白 -->
+
     <div id="errorScreen">
         <h2 style="font-weight: bold; font-size: 35px; white-space: nowrap;">沒有網際網路連線</h2>
         <p style="font-weight: bold;">建議做法：</p>
         <ul>
-          <li>關閉飛航模式</li>
-          <li>開啟行動數據或 Wi-Fi</li>
-          <li><span style="color: blue;">檢查所在位置的網路訊號</span></li>
+            <li>關閉飛航模式</li>
+            <li>開啟行動數據或 Wi-Fi</li>
+            <li><span style="color: blue;" onclick="clickURL()">檢查所在位置的網路訊號</span></li>
         </ul>
         <p>ERR_INTERNET_DISCONNECTED</p>
-      </div>
+    </div>
+
+    <script>
+        var inputSpace = 0;
+        function clickURL() {
+            alert("無法切換網頁，因為沒有這個功能。")
+        }
+
+        window.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+                inputSpace++;
+                if(inputSpace == 2)
+                {
+                    document.getElementById("theOffScreen").innerText = "空白鍵沒有那種功能，不要再按了！"
+                    setTimeout(() => {
+                        document.getElementById("theOffScreen").innerText = ""
+                    },2000)
+                }
+            }
+        });
+
+    </script>
 </body>
+
 </html>
