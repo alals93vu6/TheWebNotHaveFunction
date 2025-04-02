@@ -134,7 +134,7 @@ function ClcikEventDetected() {
     onLock = true;
     setTimeout(() => {
         OnHPZero();
-    }, 1000);
+    }, 4000);
 }
 
 function OnHPZero() {
@@ -164,7 +164,7 @@ function FakeCrashPartB()
     document.getElementById("fakeCrash").style.transform = "translate(-33%, -62%) scale(1.2)";
     
     setTimeout(() => {
-        window.location.href = "StartUP.html";
+        window.location.href = "Level_2.html";
     }, 600);
 }
 

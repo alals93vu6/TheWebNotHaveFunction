@@ -1,0 +1,24 @@
+#errorScreen {
+    font-family: "Arial", sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left; /* 讓整塊內容靠左 */
+    width: 300px;     /* 可依需求調整寬度 */
+  }
+  
+  #errorScreen h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  
+  #errorScreen ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+  }

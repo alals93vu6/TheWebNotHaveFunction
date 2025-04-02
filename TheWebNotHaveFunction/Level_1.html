@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>載入失敗</title>
-    <link rel="stylesheet" href="./CSS/ForLV1.css">
+    <link rel="stylesheet" href="./CSS/LV1/ForLV1.css">
 </head>
 
 <body>
@@ -18,32 +18,52 @@
     <div id="fakeCrash">
         <img src="./img/LV1/crash_loading.png" />
     </div>
-    
+
     <div id="theTitle">
-        <h1  id="shakeObject" onclick="OnTitleClick()">這個網頁沒有功能</h1>
+        <h1 id="shakeObject" onclick="ClickEvent()">這個網頁沒有功能</h1>
     </div>
-    <h2 id="theOffScreen"></h2>
+    <h2 id="theOffScreen"></h2> <!-- 旁白 -->
     <div id="quitButton" class="exitOption">
         <br><br><br>
         <button class="optionButton" onclick="ExitOptionDetected()">離開網頁</button>
     </div>
 
-    <div id="cancelButton" class="exitOption" style="display: none;" >
-        
+    <div id="cancelButton" class="exitOption" style="display: none;">
+
         <span class="optionTitle">您確定真的要離開嗎? </span> <br>
         <p>
-        <button class="optionButton" onclick="QuitWindows()">確認離開</button>
-        <button class="optionButton" onclick="ExitOptionDetected()" style="margin-left: 20px;">返回頁面</button>
+            <button class="optionButton" onclick="QuitWindows()">確認離開</button>
+            <button class="optionButton" onclick="ExitOptionDetected()" style="margin-left: 20px;">返回頁面</button>
         </p>
-        
     </div>
 
-    <script src="./JS/ForLV1.js"></script>
+    <script src="./JS/LV1/ForLV1.js"></script>
+    <script src="./JS/LV1/OffScreen_LV1.js"></script>
     <script>
-        function QuitWindows()
-        {
+        var getActor = false;
+
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                if(!getActor)
+                {
+                    document.getElementById("theOffScreen").innerText = "不要再看了，真的沒有功能，可以離開了"
+                    setTimeout(() => {
+                        document.getElementById("theOffScreen").innerText = ""
+                    },2000)
+                }
+            }, 6000); // 10000 毫秒 = 10 秒
+        });
+        function QuitWindows() {
             alert("沒有這個功能");
         }
+
+        function ClickEvent() {
+            if(!getActor){getActor = true;}
+            OnTitleClick();
+            TextDetected();
+        }
+
+
 
 
     </script>
