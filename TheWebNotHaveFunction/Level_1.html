@@ -9,20 +9,30 @@
 </head>
 
 <body>
-    <h1 id="theTitle" onclick="OnTitleClick()">這個網頁沒有功能</h1>
-    <h2 id="theOffScreen">我是旁白先生</h2>
+    <div id="theTitle"><h1  id="shakeObject" onclick="OnTitleClick()">這個網頁沒有功能</h1></div>
+    <h2 id="theOffScreen"></h2>
 
-    <div id="closeButton">
-
+    <div id="quitButton" class="exitOption">
+        <br><br><br>
+        <button class="optionButton" onclick="ExitOptionDetected()">離開網頁</button>
     </div>
 
-    <div id="cancelButton">
-
+    <div id="cancelButton" class="exitOption" style="display: none;" >
+        
+        <span class="optionTitle">您確定真的要離開嗎? </span> <br>
+        <p>
+        <button class="optionButton" onclick="QuitWindows()">確認離開</button>
+        <button class="optionButton" onclick="ExitOptionDetected()" style="margin-left: 20px;">返回頁面</button>
+        </p>
+        
     </div>
 
     <script src="./JS/ForLV1.js"></script>
     <script>
-        
+        function QuitWindows()
+        {
+            alert("沒有這個功能");
+        }
 
 
     </script>

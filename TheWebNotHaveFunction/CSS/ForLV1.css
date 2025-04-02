@@ -1,8 +1,8 @@
 #theTitle {
     position: absolute;
     left: 50%;  
-    top: 55%;
-    font-size: 100px;
+    top: 43%;
+    font-size: 60px;
     transition: left 2s ease, top 2s ease;  /* 加入滑順回歸動畫 */
     cursor: pointer;
     transform: translateX(-50%);
@@ -21,3 +21,42 @@
     text-align: center;
     white-space: nowrap;
 }
+
+.exitOption{
+    position: absolute;
+    left: 50%;  
+    top: 30%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.optionButton{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.optionTitle{
+    font-size: 65px;
+    font-weight: bold;
+}
+
+@keyframes shake {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(8px, -8px); }
+    50% { transform: translate(-8px, 8px); }
+    75% { transform: translate(8px, 8px); }
+    100% { transform: translate(0px, 0px); }
+  }
+  
+  .shake {
+    animation: shake 0.3s infinite;
+  }
+
+
+  /*0% { transform: translate(0px, 0px); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, 5px); }
+    75% { transform: translate(5px, 5px); }
+    100% { transform: translate(0px, 0px); }*/
