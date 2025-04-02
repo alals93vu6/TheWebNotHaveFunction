@@ -134,13 +134,38 @@ function ClcikEventDetected() {
     onLock = true;
     setTimeout(() => {
         OnHPZero();
-    }, 3000);
+    }, 1000);
 }
 
 function OnHPZero() {
     document.getElementById("blackScreen").style.opacity = 1;
     document.getElementById("loader").style.display = "block";
     document.getElementById("loaderText").style.display = "block";
+    setTimeout(() => {
+        FakeCrashPartA()
+    }, 2000);
+}
+
+function FakeCrashPartA()
+{
+    document.getElementById("blackScreen").style.backgroundImage = 'url("./img/LV1/crash_backGround.png")';
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("loaderText").style.display = "none";
+    document.getElementById("fakeCrash").style.display = "block";
+    document.getElementById("fakeCrash").style.transform = "translate(-50%, -50%) scale(0.2)";
+
+    setTimeout(() => {
+        FakeCrashPartB()
+    }, 1000);
+}
+
+function FakeCrashPartB()
+{
+    document.getElementById("fakeCrash").style.transform = "translate(-33%, -62%) scale(1.2)";
+    
+    setTimeout(() => {
+        window.location.href = "StartUP.html";
+    }, 600);
 }
 
 function cameraShake(shakeTarget) {
