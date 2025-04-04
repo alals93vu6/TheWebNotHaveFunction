@@ -12,10 +12,12 @@
     <div id="maskA" class="mask"></div>
     <div id="maskB" class="mask"></div>
 
-    <div id="gameScore">
+    <div id="gameScore" style="display: none;">
         <span>HI 114514</span>
         <span style="margin-left: 20px; color: ＃C0C0C0;">000000</span>
     </div>
+
+    <div id="cliclArea" onclick="OnGameClick()"></div>
 
     <div id="theDinosaur">
         <img src="./img/LV2/Dinosaur.png" />
@@ -27,6 +29,10 @@
 
     <div id="gameBackGround">
         <img src="./img/LV2/GameBckGround.png" />
+    </div>
+
+    <div id="resetButton" style="display: none;">
+        <img src="./img/LV2/ResetButton.png" />
     </div>
 
     <h2 id="theOffScreen"></h2> <!-- 旁白 -->
@@ -42,20 +48,16 @@
         <p>ERR_INTERNET_DISCONNECTED</p>
     </div>
 
+    <script src="./JS/LV2/ForLV2.js"></script>
     <script>
-        window.addEventListener("load", function () {
-            setTimeout(() => {
-                openMask();
-            }, 2000); // 10000 毫秒 = 10 秒
-        });
+        // window.addEventListener("load", function () {
+        //     setTimeout(() => {
+        //         OpenMask();
+        //     }, 2000); // 10000 毫秒 = 10 秒
+        // });
         var inputSpace = 0;
         function clickURL() {
             alert("無法切換網頁，因為沒有這個功能。")
-        }
-
-        function openMask() {
-            document.getElementById("maskA").style.left = "-23vw";
-            document.getElementById("maskB").style.right = "-23vw";
         }
 
         window.addEventListener("keydown", function (event) {
