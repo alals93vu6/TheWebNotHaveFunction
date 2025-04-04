@@ -1,80 +1,121 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>無法連接至伺服器</title>
-    <link rel="stylesheet" href="./CSS/LV2/ForLV2.css">
-</head>
+    <link rel="stylesheet" href="./CSS/LV2/ForLV2.css" />
+  </head>
 
-<body>
+  <body>
     <div id="maskA" class="mask"></div>
     <div id="maskB" class="mask"></div>
 
-    <div id="gameScore" style="display: none;">
-        <span>HI 114514</span>
-        <span style="margin-left: 20px; color: ＃C0C0C0;">000000</span>
+    <div id="gameScore" style="display: none">
+      <span>HI 114514</span>
+      <span style="margin-left: 20px; color: ＃C0C0C0">000000</span>
     </div>
 
     <div id="cliclArea" onclick="OnGameClick()"></div>
 
     <div id="theDinosaur">
-        <img src="./img/LV2/Dinosaur.png" />
+      <img src="./img/LV2/Dinosaur.png" />
+      <div id="dinoHitBox"></div>
     </div>
 
+    <div id="theBOSSDinosaur">
+        <img src="./img/LV2/DinosaurBOSS.png" />
+        <div id="dinoBOSSHitBox"></div>
+    </div>
+
+    <div id="dinoDetectedArea"></div>
+
     <div id="TheCactus">
-        <img src="./img/LV2/Cactus.png" />
+      <img src="./img/LV2/Cactus.png" />
+      <div id="cactusHitBox"></div>
     </div>
 
     <div id="gameBackGround">
-        <img src="./img/LV2/GameBckGround.png" />
+      <img src="./img/LV2/GameBckGround.png" />
+    </div>
+    <div id="resetButton"  style="display: none">
+      <img src="./img/LV2/ResetButton.png" />
     </div>
 
-    <div id="resetButton" style="display: none;">
-        <img src="./img/LV2/ResetButton.png" />
-    </div>
-
-    <h2 id="theOffScreen"></h2> <!-- 旁白 -->
+    <h2 id="theOffScreen"></h2>
+    <!-- 旁白 -->
 
     <div id="errorScreen">
-        <h2 style="font-weight: bold; font-size: 35px; white-space: nowrap;">沒有網際網路連線</h2>
-        <p style="font-weight: bold;">建議做法：</p>
-        <ul>
-            <li>關閉飛航模式</li>
-            <li>開啟行動數據或 Wi-Fi</li>
-            <li><span style="color: blue;" onclick="clickURL()">檢查所在位置的網路訊號</span></li>
-        </ul>
-        <p>ERR_INTERNET_DISCONNECTED</p>
+      <h2 style="font-weight: bold; font-size: 35px; white-space: nowrap">
+        沒有網際網路連線
+      </h2>
+      <p style="font-weight: bold">建議做法：</p>
+      <ul>
+        <li>關閉飛航模式</li>
+        <li>開啟行動數據或 Wi-Fi</li>
+        <li>
+          <span style="color: blue" onclick="clickURL()"
+            >檢查所在位置的網路訊號</span
+          >
+        </li>
+      </ul>
+      <p>ERR_INTERNET_DISCONNECTED</p>
     </div>
 
     <script src="./JS/LV2/ForLV2.js"></script>
     <script>
-        // window.addEventListener("load", function () {
-        //     setTimeout(() => {
-        //         OpenMask();
-        //     }, 2000); // 10000 毫秒 = 10 秒
-        // });
-        var inputSpace = 0;
-        function clickURL() {
-            alert("無法切換網頁，因為沒有這個功能。")
+      // window.addEventListener("load", function () {
+      //     setTimeout(() => {
+      //         OpenMask();
+      //     }, 2000); // 10000 毫秒 = 10 秒
+      // });
+      var inputSpace = 0;
+      const dino = document.getElementById("dinoHitBox");
+      const dinoBoss = document.getElementById("dinoBOSSHitBox");
+      const cactus = document.getElementById("cactusHitBox");
+      const reset = document.getElementById("dinoDetectedArea");
+
+      function clickURL() {
+        alert("無法切換網頁，因為沒有這個功能。");
+      }
+
+      window.addEventListener("keydown", function (event) {
+        if (event.code === "Space") {
+          inputSpace++;
+          if (inputSpace == 2) {
+            document.getElementById("theOffScreen").innerText =
+              "空白鍵沒有那種功能，不要再按了！";
+            setTimeout(() => {
+              document.getElementById("theOffScreen").innerText = "";
+            }, 2000);
+          }
+        }
+      });
+
+      setInterval(() => {
+        if (isColliding(dino, cactus)) {
+          PlayerDead(); // 例如觸發死亡畫面
         }
 
-        window.addEventListener("keydown", function (event) {
-            if (event.code === "Space") {
-                inputSpace++;
-                if (inputSpace == 2) {
-                    document.getElementById("theOffScreen").innerText = "空白鍵沒有那種功能，不要再按了！"
-                    setTimeout(() => {
-                        document.getElementById("theOffScreen").innerText = ""
-                    }, 2000)
-                }
-            }
-        });
+        if (isColliding(dinoBoss, cactus)) {
+          PlayerDead(); // 例如觸發死亡畫面
+        }
+        if (isColliding(dino, reset)) {
+            DinoDetected();
+        }
+      }, 30);
 
+      function isColliding(objA, objB) {
+        const rectA = objA.getBoundingClientRect();
+        const rectB = objB.getBoundingClientRect();
 
-
+        return !(
+          rectA.right < rectB.left ||
+          rectA.left > rectB.right ||
+          rectA.bottom < rectB.top ||
+          rectA.top > rectB.bottom
+        );
+      }
     </script>
-</body>
-
+  </body>
 </html>
