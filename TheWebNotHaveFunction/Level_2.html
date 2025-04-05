@@ -99,6 +99,7 @@
 
         if (isColliding(dinoBoss, cactus)) {
           PlayerDead(); // 例如觸發死亡畫面
+          GameEndEvent();
         }
         if (isColliding(dino, reset)) {
             DinoDetected();

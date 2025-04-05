@@ -34,6 +34,7 @@ function GameStartEvent() {
       gameStart = true;
     }, 230);
     setTimeout(() => {
+      dinoNumber = -1;
       DinoDetected();
       dinosaur.style.zIndex = 2;
     }, 500);
@@ -54,17 +55,19 @@ function OnJump() {
   }
 }
 
-function GameEndEvent() {}
+function GameEndEvent() {
+  
+}
 
 function DinoDetected() {
   if (isDead) return;
-  if (dinoNumber < 5) {
+  if (dinoNumber < 2) {
     dinoNumber++;
     ResetDino();
   } else {
     document.getElementById("dinoDetectedArea").style.left = "85%";
     document.getElementById("theBOSSDinosaur").style.transform =
-      "translate(135%, -115%)";
+      "translate(-30%, -115%)";
     document.getElementById("theBOSSDinosaur").style.transition =
       "transform 15s linear";
   }
