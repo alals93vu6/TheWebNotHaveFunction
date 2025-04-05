@@ -3,6 +3,7 @@ var isDead = false;
 var isEnd = false;
 var readyJump = true;
 var dinoNumber = 0;
+var getScore = 0;
 
 function OpenMask() {
   document.getElementById("maskA").style.left = "-21vw";
@@ -56,7 +57,7 @@ function OnJump() {
 }
 
 function GameEndEvent() {
-  
+  isEnd = true;
 }
 
 function DinoDetected() {
@@ -77,6 +78,7 @@ function GameReset() {
   isDead = false;
   readyJump = true;
   dinoNumber = 0;
+  getScore = 0;
   document.getElementById("theDinosaur").style.transition = "none";
   document.getElementById("TheCactus").style.transition = "none";
   document.getElementById("resetButton").style.display = "none";
@@ -121,4 +123,10 @@ function ResetDino() {
     dinosaur.style.transform = "translate(-0%, -173%)";
     dinosaur.style.transition = "transform 2s linear"; // 稍後再打開動畫
   }, 50);
+}
+
+function SetGetScore() {
+  if(!isDead){getScore++;}
+  var theScore = "000000" + getScore.toString();
+  document.getElementById("playerScore").innerText = theScore.slice(-6);
 }

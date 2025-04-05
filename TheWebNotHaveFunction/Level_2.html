@@ -13,7 +13,7 @@
 
     <div id="gameScore" style="display: none">
       <span>HI 114514</span>
-      <span style="margin-left: 20px; color: ＃C0C0C0">000000</span>
+      <span id="playerScore" style="margin-left: 20px; color: ＃C0C0C0">000000</span>
     </div>
 
     <div id="cliclArea" onclick="OnGameClick()"></div>
@@ -93,6 +93,8 @@
       });
 
       setInterval(() => {
+        SetGetScore();
+
         if (isColliding(dino, cactus)) {
           PlayerDead(); // 例如觸發死亡畫面
         }
