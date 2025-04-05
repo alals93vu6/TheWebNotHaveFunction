@@ -2,6 +2,7 @@ var gameStart = false;
 var isDead = false;
 var isEnd = false;
 var readyJump = true;
+var deadNumber = 0;
 var dinoNumber = 0;
 var getScore = 0;
 
@@ -62,10 +63,14 @@ function GameEndEvent() {
 
 function DinoDetected() {
   if (isDead) return;
-  if (dinoNumber < 2) {
+  if (dinoNumber < 5) {
+    if (dinoNumber == 0 && deadNumber == 0) {
+      TextDetected(1);
+    }
     dinoNumber++;
     ResetDino();
   } else {
+    TextDetected(6);
     document.getElementById("dinoDetectedArea").style.left = "85%";
     document.getElementById("theBOSSDinosaur").style.transform =
       "translate(-30%, -115%)";
@@ -77,6 +82,18 @@ function DinoDetected() {
 function GameReset() {
   isDead = false;
   readyJump = true;
+  deadNumber++;
+  switch (deadNumber) {
+    case 1:
+      TextDetected(3);
+      break;
+    case 3:
+      TextDetected(4);
+      break;
+    case 5:
+      TextDetected(5);
+      break;
+  }
   dinoNumber = 0;
   getScore = 0;
   document.getElementById("theDinosaur").style.transition = "none";
@@ -126,7 +143,9 @@ function ResetDino() {
 }
 
 function SetGetScore() {
-  if(!isDead){getScore++;}
+  if (!isDead) {
+    getScore++;
+  }
   var theScore = "000000" + getScore.toString();
   document.getElementById("playerScore").innerText = theScore.slice(-6);
 }

@@ -62,6 +62,7 @@
       <p>ERR_INTERNET_DISCONNECTED</p>
     </div>
 
+    <script src="./JS/LV2/OffScreen_LV2.js"></script>
     <script src="./JS/LV2/ForLV2.js"></script>
     <script>
       // window.addEventListener("load", function () {
@@ -102,6 +103,7 @@
         if (isColliding(dinoBoss, cactus)) {
           PlayerDead(); // 例如觸發死亡畫面
           GameEndEvent();
+          
         }
         if (isColliding(dino, reset)) {
             DinoDetected();
