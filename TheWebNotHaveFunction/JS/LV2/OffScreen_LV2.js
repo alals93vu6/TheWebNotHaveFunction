@@ -39,11 +39,34 @@ function TextDetected(titleNumber) {
         FinalyText();
       }, 1500);
       break;
+
+      case 7:
+      offScreenText.innerText = "你明明知道你跳不過去，為甚麼還要繼續待在這裡？🙄";
+      setTimeout(() => {
+        offScreenText.innerText = "";
+      }, 1500);
+      break;
+
+      case 8:
+      offScreenText.innerText = "天啊，瞧瞧你把這裡弄的這麼狼狽";
+      setTimeout(() => {
+        FinalyTextB();
+      }, 1500);
+      break;
   }
 
   function FinalyText() {
     const offScreenText = document.getElementById("theOffScreen");
     offScreenText.innerText = "🤬🤬🤬🤬🤬";
+
+    setTimeout(() => {
+        offScreenText.innerText = "";
+      }, 4000);
+  }
+
+  function FinalyTextB() {
+    const offScreenText = document.getElementById("theOffScreen");
+    offScreenText.innerText = "我還要充當老媽子幫你收拾是吧😒";
 
     setTimeout(() => {
         offScreenText.innerText = "";

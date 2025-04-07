@@ -11,6 +11,14 @@ function OpenMask() {
   document.getElementById("maskB").style.right = "-17.5vw";
 }
 
+function CloseMask() {
+  document.getElementById("maskA").style.left = "0vw";
+  document.getElementById("maskA").style.zIndex = 15;
+  document.getElementById("maskB").style.right = "0vw";
+  document.getElementById("maskB").style.zIndex = 15;
+
+}
+
 function OnGameClick() {
   if (!gameStart) {
     GameStartEvent();
@@ -58,12 +66,28 @@ function OnJump() {
 }
 
 function GameEndEvent() {
+  if(!isEnd)
+  {
+    OnGameEnd();
+  }
   isEnd = true;
+  
+}
+
+async function OnGameEnd(){
+  TextDetected(7);
+  await delay(2500);
+  cameraShake();
+  TextDetected(8);
+  await delay(6500);
+  CloseMask();
+  await delay(2500);
+  window.location.href = "Level_3.html";
 }
 
 function DinoDetected() {
   if (isDead) return;
-  if (dinoNumber < 5) {
+  if (dinoNumber < 4) {
     if (dinoNumber == 0 && deadNumber == 0) {
       TextDetected(1);
     }
@@ -75,7 +99,7 @@ function DinoDetected() {
     document.getElementById("theBOSSDinosaur").style.transform =
       "translate(-30%, -115%)";
     document.getElementById("theBOSSDinosaur").style.transition =
-      "transform 15s linear";
+      "transform 10s linear";
   }
 }
 
@@ -148,4 +172,27 @@ function SetGetScore() {
   }
   var theScore = "000000" + getScore.toString();
   document.getElementById("playerScore").innerText = theScore.slice(-6);
+}
+
+function cameraShake() {
+  const wrapper = document.getElementById("errorScreen");
+  wrapper.classList.add("shake");
+  setTimeout(() => {
+    wrapper.classList.remove("shake");
+    triggerFall();
+}, 5000);
+}
+
+function triggerFall() {
+  const screen = document.getElementById("errorScreen");
+  screen.classList.add("fall");
+
+  // 可選：0.5 秒後隱藏物件或移除 class（視你需求）
+  setTimeout(() => {
+    screen.style.display = "none"; // 或使用 classList.remove("fall") 重新使用
+  }, 500);
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }

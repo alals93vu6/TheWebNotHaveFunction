@@ -13,7 +13,7 @@
   position: fixed;
   top: 0%;
   width: 50%;
-  height: 330px;
+  height: 335px;
   background-color: rgba(255, 255, 255, 1);
   z-index: 3;
 }
@@ -218,4 +218,31 @@
   letter-spacing: 2px;
   font-weight: bold;
   image-rendering: pixelated;
+}
+
+@keyframes shake {
+  0%   { transform: translate(-120%, -50%); }
+  25%  { transform: translate(calc(-120% + 4px), calc(-50% - 4px)); }
+  50%  { transform: translate(calc(-120% - 4px), calc(-50% + 4px)); }
+  75%  { transform: translate(calc(-120% + 4px), calc(-50% + 4px)); }
+  100% { transform: translate(-120%, -50%); }
+}
+
+.shake {
+  animation: shake 0.3s infinite;
+}
+
+@keyframes fallDisappear {
+  0% {
+    transform: translate(-120%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120%, 200%);
+    opacity: 0;
+  }
+}
+
+#errorScreen.fall {
+  animation: fallDisappear 0.5s ease-out forwards;
 }
