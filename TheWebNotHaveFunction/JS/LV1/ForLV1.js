@@ -156,7 +156,7 @@ function FakeCrashPartA()
 
     setTimeout(() => {
         FakeCrashPartB()
-    }, 1000);
+    }, 600);
 }
 
 function FakeCrashPartB()
@@ -165,7 +165,7 @@ function FakeCrashPartB()
     
     setTimeout(() => {
         window.location.href = "Level_2.html";
-    }, 600);
+    }, 200);
 }
 
 function cameraShake(shakeTarget) {

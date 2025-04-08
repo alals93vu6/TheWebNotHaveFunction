@@ -162,7 +162,7 @@ function ResetDino() {
 
   setTimeout(() => {
     dinosaur.style.transform = "translate(-0%, -173%)";
-    dinosaur.style.transition = "transform 1s linear"; // 稍後再打開動畫
+    dinosaur.style.transition = "transform 2s linear"; // 稍後再打開動畫
   }, 50);
 }
 
