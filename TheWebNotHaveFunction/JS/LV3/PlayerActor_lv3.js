@@ -1,4 +1,5 @@
 import { TextManager } from './TextManager_lv3.js';
+import { DragPass,DragFailed,DragNone } from './GameManager_lv3.js';
 
 window.addEventListener('DOMContentLoaded', () => {
     const words = document.querySelectorAll('.word');

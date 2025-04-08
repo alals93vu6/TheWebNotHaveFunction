@@ -1,11 +1,13 @@
-function DragPass(){
-    alert("✅ 通關成功！");
+import { NoneTextDetected,PassTextDetected,FailedTextDetected } from "./OffScreen_LV3.js";
+
+export function DragPass(){
+    PassTextDetected();
 }
 
-function DragFailed(){
-    alert("❌ 丟錯字了喔！");
+export function DragFailed(){
+    FailedTextDetected();
 }
 
-function DragNone(){
-    alert("⚠️ 要拖進垃圾桶才算喔！");
+export function DragNone(){
+    NoneTextDetected();
 }
