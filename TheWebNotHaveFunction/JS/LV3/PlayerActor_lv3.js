@@ -43,9 +43,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 
                 // ✅ 不管有沒有丟進垃圾桶，都執行檢查
                 TextManager.checkStatus(
-                    () => alert("✅ 通關成功！"),
+                    () => DragPass(),
                     () => {
-                        alert(isInTrash ? "❌ 丟錯字了喔！" : "⚠️ 要拖進垃圾桶才算喔！");
+                        isInTrash ? DragFailed() : DragNone();
                 
                         const pos = TextManager.originalPositions[id];
                         if (pos) {
@@ -62,35 +62,3 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-
-/**function onMouseUp(e) {
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-
-                const wordRect = word.getBoundingClientRect();
-                const trashRect = trashBin.getBoundingClientRect();
-
-                const isInTrash =
-                    wordRect.right > trashRect.left &&
-                    wordRect.left < trashRect.right &&
-                    wordRect.bottom > trashRect.top &&
-                    wordRect.top < trashRect.bottom;
-
-                if (isInTrash) {
-                    word.style.display = "none";
-
-                    // 通知 TextManager 檢查
-                    TextManager.checkStatus(
-                        () => alert("✅ 通關成功！"),
-                        () => alert("❌ 只有『沒』字才能丟進垃圾桶喔！")
-                    );
-                } else {
-                    // 放錯地方就回原位
-                    const pos = TextManager.originalPositions[id];
-                    if (pos) {
-                        word.style.left = pos.left;
-                        word.style.top = pos.top;
-                    }
-                }
-            } */
