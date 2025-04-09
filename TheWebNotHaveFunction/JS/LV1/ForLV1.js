@@ -43,6 +43,7 @@ function OnTitleClick() {
     if (!onLock) {
         titleHP--;
         cameraShake(titleHP);
+        TextDetected();
         if (titleHP <= 0) {
             ClcikEventDetected();
         }
