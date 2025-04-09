@@ -1,6 +1,7 @@
 var PassNumber = 0;
 var FailedNumber = 0;
 var NoneNumber = 0;
+var ReadyNumber = 0;
 
 export function PassTextDetected() {
     PassNumber++;
@@ -20,6 +21,12 @@ export function NoneTextDetected() {
     //alert(NoneNumber);
 }
 
+export function ReadyTextDetected() {
+    ReadyNumber++;
+    TextDetected(0, ReadyNumber);
+    //alert(NoneNumber);
+}
+
 function TextDetected(textType, titleNumber) {
 
     const offScreenText = document.getElementById("theOffScreen");
@@ -28,6 +35,29 @@ function TextDetected(textType, titleNumber) {
         return;
     }
     switch (textType) {
+        case 0:
+            switch (titleNumber) {
+                case 1:
+                    offScreenText.innerText = ".....";
+                    setTimeout(() => {
+                        TextDetected(0, -1);
+                    }, 3000);
+                    break;
+                case -1:
+                    offScreenText.innerText = "好，算你厲害";
+                    setTimeout(() => {
+                        TextDetected(0, -2);
+                    }, 1500);
+                    break;
+
+                case -2:
+                    offScreenText.innerText = "只是我真的不明白你為甚麼非得要在這裡跟我耗?";
+                    setTimeout(() => {
+                        offScreenText.innerText = "";
+                    }, 3000);
+                    break;
+            }
+            break;
         case 1:
             switch (titleNumber) {
                 case 1:

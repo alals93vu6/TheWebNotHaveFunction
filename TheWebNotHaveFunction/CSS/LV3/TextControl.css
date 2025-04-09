@@ -30,7 +30,8 @@
     cursor: grab;
     background-color: rgba(255, 0, 0, 0.0);
     user-select: none;
-    transition: left 0.3s, top 0.3s;
+    opacity: 0 ;
+    transition: left 0.3s, top 0.3s, opacity 0.5s ease;
 }
 
 #W1 { left: 23%; top: 250%; }
@@ -45,7 +46,9 @@
 #trashBin {
     position: absolute;
     bottom: 50px;
-    left: 50%;
+    left: 90%;
     transform: translateX(-50%);
     font-size: 50px;
+    opacity: 0;
+    transition: left 1s, opacity 0.7s ease;
 }

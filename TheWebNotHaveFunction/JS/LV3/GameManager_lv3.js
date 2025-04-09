@@ -1,13 +1,20 @@
-import { NoneTextDetected,PassTextDetected,FailedTextDetected } from "./OffScreen_LV3.js";
+import * as OffScreen from "./OffScreen_LV3.js";
+import { StartUP } from './JS/LV3/AnimatorControl_lv3.js';
 
-export function DragPass(){
-    PassTextDetected();
+export function OnGameStart() {
+    alert("gamestart");
+    StartUP();
+    OffScreen.ReadyTextDetected();
 }
 
-export function DragFailed(){
-    FailedTextDetected();
+export function DragPass() {
+    OffScreen.PassTextDetected();
 }
 
-export function DragNone(){
-    NoneTextDetected();
+export function DragFailed() {
+    OffScreen.FailedTextDetected();
+}
+
+export function DragNone() {
+    OffScreen.NoneTextDetected();
 }
