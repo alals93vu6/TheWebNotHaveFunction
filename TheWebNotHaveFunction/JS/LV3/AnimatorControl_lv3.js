@@ -1,3 +1,5 @@
+
+
 export async function StartUP() {
     const trashBin = document.getElementById("trashBin");
     const titleContainer = document.getElementById("wordContainer");
@@ -30,22 +32,28 @@ export async function ClearOption() {
 
 export function ActivateRGBCycle() {
     const words = document.querySelectorAll("#wordContainer .word");
-  
+    document.getElementById("theLight").style.display = "block";
+
     words.forEach(word => {
-      if (word.id !== "W5") { // 排除掉 "沒" 字
-        let hue = Math.floor(Math.random() * 360); // 每個字初始色不同
-  
-        const cycle = () => {
-          hue = (hue + 2) % 360; // 色相變化速度
-          word.style.color = `hsl(${hue}, 100%, 50%)`;
-          requestAnimationFrame(cycle);
-        };
-  
-        cycle(); // 啟動循環動畫
-      }
+        if (word.id !== "W5") { // 排除掉 "沒" 字
+            let hue = Math.floor(Math.random() * 360); // 每個字初始色不同
+
+            const cycle = () => {
+                hue = (hue + 2) % 360; // 色相變化速度
+                word.style.color = `hsl(${hue}, 100%, 50%)`;
+                word.style.textShadow = `
+                -1px -1px 0 black,
+                 6px -1px 0 black,
+                -1px  6px 0 black,
+                6px  6px 0 black`;
+                requestAnimationFrame(cycle);
+            };
+
+            cycle(); // 啟動循環動畫
+        }
     });
-  }
+}
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
