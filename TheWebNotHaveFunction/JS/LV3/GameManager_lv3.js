@@ -11,6 +11,7 @@ export async function OnGameStart(){
 }
 
 export function DragPass(){
+    Animator.ActivateRGBCycle();
     OffScreen.PassTextDetected();
 }
 

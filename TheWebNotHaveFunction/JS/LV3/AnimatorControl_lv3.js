@@ -28,6 +28,24 @@ export async function ClearOption() {
     options.style.opacity = "0";
 }
 
+export function ActivateRGBCycle() {
+    const words = document.querySelectorAll("#wordContainer .word");
+  
+    words.forEach(word => {
+      if (word.id !== "W5") { // 排除掉 "沒" 字
+        let hue = Math.floor(Math.random() * 360); // 每個字初始色不同
+  
+        const cycle = () => {
+          hue = (hue + 2) % 360; // 色相變化速度
+          word.style.color = `hsl(${hue}, 100%, 50%)`;
+          requestAnimationFrame(cycle);
+        };
+  
+        cycle(); // 啟動循環動畫
+      }
+    });
+  }
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
