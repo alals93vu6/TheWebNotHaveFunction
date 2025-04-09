@@ -2,7 +2,7 @@ export async function StartUP() {
     const trashBin = document.getElementById("trashBin");
     const titleContainer = document.getElementById("wordContainer");
     const words = titleContainer.querySelectorAll(".word");
-    const options = document.getElementsByClassName("quitButton");
+    const options = document.getElementById("exitOption");
 
     // 1. 逐字淡入
     for (let i = 0; i < words.length; i++) {
@@ -16,8 +16,16 @@ export async function StartUP() {
     trashBin.style.left = "50%";
     trashBin.style.opacity = "1";
     await delay(500);
-
+    options.style.left = "50%";
     options.style.opacity = "1";
+}
+
+export async function ClearOption() {
+    const options = document.getElementById("exitOption");
+    await delay(500);
+    options.style.top = "75%";
+    await delay(300);
+    options.style.opacity = "0";
 }
 
 function delay(ms) {

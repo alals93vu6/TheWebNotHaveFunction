@@ -21,7 +21,7 @@
         <div class="word" id="W8">能</div>
     </div>
 
-    <div id="quitButton" class="exitOption quitButton">
+    <div id="exitOption">
         <button class="optionButton">離開網頁</button>
     </div>
 
@@ -30,18 +30,17 @@
     <h2 id="theOffScreen"></h2>
     <!-- 旁白 -->
 
-    <script type="module" src="./JS/LV3/OffScreen_LV3.js"></script>
-    <script type="module" src="./JS/LV3/TextManager_lv3.js"></script>
-    <script type="module" src="./JS/LV3/PlayerActor_lv3.js"></script>
-    <script type="module" src="./JS/LV3/GameManager_lv3.js"></script>
-    <script type="module" src="./JS/LV3/AnimatorControl_lv3.js"></script>
+
     <script type="module">
-        import { StartUP } from './JS/LV3/AnimatorControl_lv3.js';
-      
-        window.onload = function () {
-          StartUP();
+        import * as PlayerActor from "./JS/LV3/PlayerActor_lv3.js";
+        import * as GameManager from "./JS/LV3/GameManager_lv3.js";
+        window.onload = () => {
+            setTimeout(() => {
+                GameManager.OnGameStart();
+            }, 1000);
         };
-      </script>
+
+    </script>
 </body>
 
 </html>

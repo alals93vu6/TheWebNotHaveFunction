@@ -1,19 +1,27 @@
-import { NoneTextDetected,PassTextDetected,FailedTextDetected,ReadyTextDetected } from "./OffScreen_LV3.js";
-import { StartUP } from './JS/LV3/AnimatorControl_lv3.js';
+import * as OffScreen from "./OffScreen_LV3.js";
+import * as Animator from "./AnimatorControl_lv3.js";
 
-export function OnGameStart(){
-    StartUP();
-    ReadyTextDetected();
+
+export async function OnGameStart(){
+    Animator.StartUP();
+    await delay(2800);
+    OffScreen.ReadyTextDetected();
+    await delay(1600);
+    Animator.ClearOption();
 }
 
 export function DragPass(){
-    PassTextDetected();
+    OffScreen.PassTextDetected();
 }
 
 export function DragFailed(){
-    FailedTextDetected();
+    OffScreen.FailedTextDetected();
 }
 
 export function DragNone(){
-    NoneTextDetected();
+    OffScreen.NoneTextDetected();
 }
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }

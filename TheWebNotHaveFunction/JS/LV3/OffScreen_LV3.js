@@ -30,28 +30,36 @@ export function ReadyTextDetected() {
 function TextDetected(textType, titleNumber) {
 
     const offScreenText = document.getElementById("theOffScreen");
-    if (!offScreenText) {
-        console.warn("無法取得 #theOffScreen");
-        return;
-    }
     switch (textType) {
         case 0:
             switch (titleNumber) {
                 case 1:
+                    offScreenText.innerText = "讓我猜猜，你根本不須需要這個東西對吧？";
+                    setTimeout(() => {
+                        TextDetected(0, 0);
+                    }, 1800);
+                    break;
+                case 0:
                     offScreenText.innerText = ".....";
                     setTimeout(() => {
                         TextDetected(0, -1);
-                    }, 3000);
+                    }, 800);
                     break;
                 case -1:
-                    offScreenText.innerText = "好，算你厲害";
+                    offScreenText.innerText = "完美！";
                     setTimeout(() => {
                         TextDetected(0, -2);
                     }, 1500);
                     break;
 
                 case -2:
-                    offScreenText.innerText = "只是我真的不明白你為甚麼非得要在這裡跟我耗?";
+                    offScreenText.innerText = "隨便你想待多久都沒關係";
+                    setTimeout(() => {
+                        TextDetected(0, -3);
+                    }, 1500);
+                    break;
+                case -3:
+                    offScreenText.innerText = "反正這裡什麼都沒有了，我到要看你有多少美國時間🤨";
                     setTimeout(() => {
                         offScreenText.innerText = "";
                     }, 3000);
@@ -84,7 +92,7 @@ function TextDetected(textType, titleNumber) {
         case 2:
             switch (titleNumber) {
                 case 1:
-                    offScreenText.innerText = "你倒是不要亂丟啊！！";
+                    offScreenText.innerText = "你東西不要給我亂丟啊！！";
                     setTimeout(() => {
                         offScreenText.innerText = "";
                     }, 1500);
@@ -118,7 +126,7 @@ function TextDetected(textType, titleNumber) {
         case 3:
             switch (titleNumber) {
                 case 1:
-                    offScreenText.innerText = "你把這裡弄亂了！";
+                    offScreenText.innerText = "別亂碰！你把這裡弄亂了！";
                     setTimeout(() => {
                         offScreenText.innerText = "";
                     }, 1500);
