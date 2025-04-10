@@ -36,7 +36,7 @@ export async function OnDestroyEvent()
     await delay(500);
     Animator.ReadyDestory();
 
-    await delay(12000);
+    await delay(8000);
     ENDEvent();
 }
 

@@ -62,6 +62,7 @@ function TextDetected(textType, titleNumber) {
                     offScreenText.innerText = "反正這裡什麼都沒有了，我到要看你有多少美國時間🤨";
                     setTimeout(() => {
                         offScreenText.innerText = "";
+                        document.getElementById("wordContainer").style.pointerEvents = "auto";
                     }, 3000);
                     break;
             }
@@ -70,6 +71,7 @@ function TextDetected(textType, titleNumber) {
             switch (titleNumber) {
                 case 1:
                     offScreenText.innerText = ".....";
+                    document.getElementById("wordContainer").style.pointerEvents = "none";
                     setTimeout(() => {
                         TextDetected(1, -1);
                     }, 3000);
