@@ -5,10 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./CSS/LV5/TextControl_lv5.css">
+    <link rel="stylesheet" href="./CSS/LV5/ObjectControl_lv5.css">
 </head>
 
 <body>
+    <img id="centerImage" src="./img/LV5/giftA.png" onclick="RickTrap()" />
+
+    <div id="ENFGift">
+        <video id="centerVideo" width="720" autoplay muted loop poster="./img/LV5/giftA.png">
+            <source src="./img/LV5/gift.mp4" type="video/mp4" />
+            您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+    </div>
+
+    <audio controls id="centerAudio">
+        <source src="./Audio/LV5/giftMusic.mp3" type="audio/mpeg" style="display: block;">
+        您的瀏覽器不支援音訊播放。
+    </audio>
+
     <div id="wordContainer" class="wordContainer">
         <div class="word" id="W1">這</div>
         <div class="word" id="W2">個</div>
@@ -28,6 +42,14 @@
         window.onload = function () {
             TextDetected(1);
         };
+
+        function RickTrap() {
+            document.getElementById("centerImage").style.display = "none";
+            document.getElementById("centerVideo").style.display = "block";
+            document.getElementById("centerAudio").play();
+            TextDetected(2);
+        }
+
     </script>
 </body>
 

@@ -27,6 +27,7 @@
     opacity: 0;
     transition: opacity 3s ease;
     z-index: 20;          /* 確保在最上層 */
+    user-select: none;
 }
 
 #trashBin {
@@ -38,5 +39,6 @@
     opacity: 1;
     transition: left 1s, opacity 0.7s ease;
     z-index: 2;
+    user-select: none;
 }
 

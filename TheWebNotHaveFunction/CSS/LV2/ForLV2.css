@@ -7,6 +7,7 @@
   transform: translateX(-50%);
   text-align: center;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .mask {
@@ -16,6 +17,7 @@
   height: 335px;
   background-color: rgba(255, 255, 255, 1);
   z-index: 3;
+  pointer-events: none;
 }
 
 #maskA {
@@ -59,6 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 #theDinosaur {
@@ -71,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 #theBOSSDinosaur {
@@ -83,6 +87,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 #dinoDetectedArea {
@@ -106,6 +111,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 #cactusHitBox {
@@ -117,6 +123,7 @@
   background-color: rgba(255, 0, 0, 0); 
   pointer-events: none;  
   z-index: 10;
+  pointer-events: none;
 }
 
 #theDinosaur img {
@@ -135,6 +142,7 @@
   background-color: rgba(255, 0, 0, 0); 
   pointer-events: none;  
   z-index: 10;
+  pointer-events: none;
 }
 
 #theBOSSDinosaur img {
@@ -142,6 +150,7 @@
   width: auto;
   height: auto;
   max-width: 50%;
+  pointer-events: none;
 }
 
 #dinoBOSSHitBox{
@@ -153,6 +162,7 @@
   background-color: rgba(255, 0, 0, 0); 
   pointer-events: none;  
   z-index: 10;
+  pointer-events: none;
 }
 
 #resetButton img {
@@ -167,12 +177,14 @@
   width: auto;
   height: auto;
   max-width: 15%;
+  pointer-events: none;
 }
 
 #gameBackGround img {
   image-rendering: pixelated;
   width: 800px;
   height: 200px;
+  pointer-events: none;
 }
 
 #errorScreen {

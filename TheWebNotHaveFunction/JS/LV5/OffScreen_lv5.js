@@ -115,7 +115,7 @@ async function TextDetected(titleNumber) {
 
         case -10:
             newTexts = ["這", "個", "網", "頁", "沒", "有", "功", "能"];
-            
+
             for (let i = 0; i < 8; i++) {
                 const word = document.getElementById("W" + (i + 1));
                 if (word) {
@@ -159,7 +159,7 @@ async function TextDetected(titleNumber) {
             }
             setTimeout(() => {
                 TextDetected(-13);
-            },200);
+            }, 200);
             break;
 
         case -13:
@@ -225,7 +225,7 @@ async function TextDetected(titleNumber) {
             }, 200);
             break;
         case -17:
-            newTexts = [ "能", "", "", "", "", "", "", ""];
+            newTexts = ["能", "", "", "", "", "", "", ""];
 
             for (let i = 0; i < 8; i++) {
                 const word = document.getElementById("W" + (i + 1));
@@ -240,7 +240,7 @@ async function TextDetected(titleNumber) {
             }, 200);
             break;
         case -18:
-            newTexts = [ "", "", "", "", "", "", "", ""];
+            newTexts = ["", "", "", "", "", "", "", ""];
 
             for (let i = 0; i < 8; i++) {
                 const word = document.getElementById("W" + (i + 1));
@@ -255,7 +255,7 @@ async function TextDetected(titleNumber) {
             }, 1200);
             break;
         case -19:
-            newTexts = [ "🤬", "🖕", "", "", "", "", "", ""];
+            newTexts = ["🤬", "🖕", "", "", "", "", "", ""];
 
             for (let i = 0; i < 8; i++) {
                 const word = document.getElementById("W" + (i + 1));
@@ -270,19 +270,19 @@ async function TextDetected(titleNumber) {
             }, 400);
             break;
         case -20:
-            newTexts = [ "", "", "", "", "", "", "", ""];
-
+            newTexts = ["", "", "", "", "", "", "", ""];
+            offScreenText.innerText = "......";
             for (let i = 0; i < 8; i++) {
                 const word = document.getElementById("W" + (i + 1));
                 if (word) {
                     word.textContent = newTexts[i];
                     word.style.opacity = "1"; // 顯示字
                 }
-                await delay(10); // 每個字間隔 0.2 秒
+                await delay(100); // 每個字間隔 0.2 秒
             }
             setTimeout(() => {
                 TextDetected(-21);
-            }, 4000);
+            }, 3000);
             break;
         case -21:
             offScreenText.innerText = "嗯...我想我欠你一個道歉";
@@ -300,8 +300,29 @@ async function TextDetected(titleNumber) {
             offScreenText.innerText = "給你一個小小的賠禮，希望你不要放在心上";
             setTimeout(() => {
                 offScreenText.innerText = "";
+                document.getElementById("centerImage").style.display = "block";
             }, 2000);
             break;
+        case 2:
+            offScreenText.innerText = "";
+            setTimeout(() => {
+                TextDetected(3);
+            }, 10000);
+            break;
+        case 3:
+            offScreenText.innerText = "好了，這裡真的沒東西了，可以離開了！";
+            setTimeout(() => {
+                TextDetected(4);
+            }, 2500);
+            break;
+        case 4:
+            offScreenText.innerText = "講實話，這裡不歡迎你，永別了😉";
+            setTimeout(() => {
+                window.close();
+            }, 2500);
+            break;
+
+
     }
 }
 
