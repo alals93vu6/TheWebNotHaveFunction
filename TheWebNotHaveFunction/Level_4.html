@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>伺服器異常</title>
+    <link rel="stylesheet" href="./CSS/LV4/ObjectControl_lv4.css">
+    <link rel="stylesheet" href="./CSS/LV4/TextControl_lv4.css">
+    <link rel="stylesheet" href="./CSS/LV4/CrashObject_lv4.css">
 </head>
+
 <body>
-    <h1>LEVLE4</h1>
+    <div id="blackScreen"></div>
+    <div id="fakeLoading">
+        <img id="loader" src="./img/LV1/FakeLoading.png" />
+        <h2 id="loaderText">系統🐢中，請稍後...</h2>
+    </div>
+
+    <div id="wordContainer" class="wordContainer">
+        <div class="word" id="W1">🐢</div>
+        <div class="word" id="W2">🐢</div>
+        <div class="word" id="W3">🐢</div>
+        <div class="word" id="W4">🐢</div>
+        <div class="word" id="W5">🐢</div>
+        <div class="word" id="W6">🐢</div>
+        <div class="word" id="W7">🐢</div>
+        <div class="word" id="W8">🐢</div>
+    </div>
+
+    <div id="trashBin" style="font-size: 200px;">🐢</div>
+
+    <img id="theLight" src="./img/LV3/LightBulb/theLight.gif" alt="描述文字">
+
+    <h2 id="theOffScreen"></h2>
+    <!-- 旁白 -->
+
+    <script type="module">
+        import * as GameManager from "./JS/LV4/GameManager_lv4.js";
+        window.onload = () => {
+            GameManager.OnGameLoad();
+        };
+
+    </script>
 </body>
+
 </html>

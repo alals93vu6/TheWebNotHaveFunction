@@ -1,0 +1,45 @@
+#theOffScreen {
+    position: absolute;
+    left: 50%;
+    top: 73%;
+    font-size: 70px;
+    cursor: pointer;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 10;
+  }
+
+.wordContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    justify-content: center;
+    /* 可改成 space-around 或 flex-start */
+    align-items: center;
+    gap: 3px;
+    /* 每個字的間距 */
+    user-select: none;
+    z-index: 8;
+}
+
+.word {
+    position: absolute; /* 只保留這個 */
+    font-size: 110px;
+    font-weight: bold;
+    cursor: grab;
+    background-color: rgba(255, 0, 0, 0.0);
+    user-select: none;
+    transition: left 0.3s, top 0.3s, opacity 0.5s ease;
+}
+
+#W1 { left: 18%; top: 185%; }
+#W2 { left: 34%; top: 270%;}
+#W3 { left: 46%; top: 135%; }
+#W4 { left: 58%; top: 76%; }
+#W5 { left: 62%; top: 300%; }
+#W6 { left: 64%; top: 60%; }
+#W7 { left: 85%; top: 250%; }
+#W8 { left: 91%; top: 4200%; }
