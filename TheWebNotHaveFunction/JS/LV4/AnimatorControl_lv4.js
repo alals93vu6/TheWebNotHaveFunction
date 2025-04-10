@@ -1,4 +1,4 @@
-import{OnDestroyEvent}from "./GameManager_lv4.js";
+import { OnDestroyEvent } from "./GameManager_lv4.js";
 
 export async function OnCrash() {
     document.getElementById("blackScreen").style.opacity = 1;
@@ -114,6 +114,16 @@ export async function EevealWordsInOrder() {
 
     await delay(1000);
     OnDestroyEvent();
+}
+
+export function ReadyDestory() {
+    let count = 60;
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+        countdownEl.textContent = count;
+        count--;
+    }, 1000);
 }
 
 function delay(ms) {

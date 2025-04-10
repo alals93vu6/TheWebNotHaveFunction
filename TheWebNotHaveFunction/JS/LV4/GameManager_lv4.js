@@ -28,9 +28,13 @@ export function TextLogEvent()
     Animator.EevealWordsInOrder();
 }
 
-export function OnDestroyEvent()
+export async function OnDestroyEvent()
 {
-    alert("你完蛋了");
+    document.getElementById("theFire").style.opacity = "0.6";
+    await delay(1500);
+    document.getElementsByClassName("winAlert")[0].style.opacity = "1";
+    await delay(500);
+    Animator.ReadyDestory();
 }
 
 export async function OnButtonA()

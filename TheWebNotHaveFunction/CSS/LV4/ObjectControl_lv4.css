@@ -12,6 +12,21 @@
     width: 282px;
     height: 752px;
     cursor: pointer;
+    pointer-events: none;
+}
+
+#theFire {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* 圖片鋪滿，保持比例 */
+    mix-blend-mode: screen; /* 關鍵混合模式：加亮/去黑 */
+    pointer-events: none;   /* 不要影響滑鼠事件 */
+    opacity: 0;
+    transition: opacity 3s ease;
+    z-index: 20;          /* 確保在最上層 */
 }
 
 #trashBin {
