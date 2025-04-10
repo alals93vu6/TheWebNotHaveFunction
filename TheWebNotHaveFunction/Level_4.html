@@ -16,16 +16,42 @@
         <img id="loader" src="./img/LV1/FakeLoading.png" />
         <h2 id="loaderText">系統🐢中，請稍後...</h2>
     </div>
+    
+    <div id="firstCrash" class="crashBox posCenter">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.ReportErrorEventB()">確定</button>
+    </div>
+
+    <div class="crashBox CrashObject1">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.OnButtonA()">確定</button>
+    </div>
+    <div class="crashBox CrashObject2">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.OnButtonB()">確定</button>
+    </div>
+    <div class="crashBox CrashObject3">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.OnButtonC()">確定</button>
+    </div>
+    <div class="crashBox CrashObject4">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.OnButtonD()">確定</button>
+    </div>
+    <div class="crashBox CrashObject5">
+        <img class="crashImg" src="./img/LV4/ErrorBord.png" />
+        <button class="closeCrash" onclick="GameAPI.OnButtonE()">確定</button>
+    </div>
 
     <div id="wordContainer" class="wordContainer">
-        <div class="word" id="W1">🐢</div>
-        <div class="word" id="W2">🐢</div>
-        <div class="word" id="W3">🐢</div>
-        <div class="word" id="W4">🐢</div>
-        <div class="word" id="W5">🐢</div>
-        <div class="word" id="W6">🐢</div>
-        <div class="word" id="W7">🐢</div>
-        <div class="word" id="W8">🐢</div>
+        <div class="word" id="W1" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W2" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W3" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W4" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W5" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W6" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W7" onclick="GameAPI.ReportErrorEvent()">🐢</div>
+        <div class="word" id="W8" onclick="GameAPI.ReportErrorEvent()">🐢</div>
     </div>
 
     <div id="trashBin" style="font-size: 200px;">🐢</div>

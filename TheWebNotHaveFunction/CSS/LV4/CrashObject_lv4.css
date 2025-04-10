@@ -46,3 +46,68 @@
     0% { transform: translate(-50%, -50%) rotate(0deg); }
     100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
+
+  /*--------------------------------------------BROD------------------------------------------*/
+  .crashBox {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    z-index: 999;
+    display: none;
+}
+
+/* 🎯 2. 圖片置中、可調大小 */
+.crashImg {
+    display: block;
+    width: 600px;  /* ✅ 可依需要調整大小 */
+    height: auto;
+}
+
+/* 🎯 3. 按鈕固定在圖片右下角 */
+.closeCrash {
+    position: absolute;
+    bottom: 8%;
+    right: 15%;
+    padding: 10px 25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 🎯 4. 複製用的位置模板類別（自由擴展） */
+.posCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.CrashObject1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-90%, -90%);
+}
+.CrashObject2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -70%);
+}
+.CrashObject3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.CrashObject4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -30%);
+}
+.CrashObject5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, -10%);
+}
+
