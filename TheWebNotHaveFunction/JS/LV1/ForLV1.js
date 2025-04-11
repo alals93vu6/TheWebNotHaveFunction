@@ -16,8 +16,8 @@ window.onload = function () {
 function changeLocation() {
     if (!onLock) {
         const title = document.getElementById("theTitle");
-        let randomLeft = Math.floor(Math.random() * 41) + 30; // 30 ~ 70
-        let randomTop = Math.floor(Math.random() * 36) + 35;  // 30 ~ 70
+        let randomLeft = Math.floor(Math.random() * 31) + 35; // 35 ~ 65
+        let randomTop = Math.floor(Math.random() * 26) + 40;  // 40 ~ 65
         title.style.left = randomLeft + "%";
         title.style.top = randomTop + "%";
     }
