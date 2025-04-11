@@ -40,7 +40,7 @@ function GameStartEvent() {
     Cactus.style.top = "12%";
     document.getElementById("gameScore").style.display = "block";
     setTimeout(() => {
-      Cactus.style.top = "27%";
+      Cactus.style.top = "29%";
       gameStart = true;
     }, 230);
     setTimeout(() => {
@@ -53,15 +53,15 @@ function GameStartEvent() {
 
 function OnJump() {
   var Cactus = document.getElementById("TheCactus");
-  if (Cactus.style.top == "27%" && readyJump) {
+  if (Cactus.style.top == "29%" && readyJump) {
     Cactus.style.top = "12%";
     readyJump = false;
     setTimeout(() => {
-      Cactus.style.top = "27%";
+      Cactus.style.top = "29%";
     }, 230);
     setTimeout(() => {
       readyJump = true;
-    }, 800);
+    }, 500);
   }
 }
 
@@ -97,7 +97,7 @@ function DinoDetected() {
     TextDetected(6);
     document.getElementById("dinoDetectedArea").style.left = "85%";
     document.getElementById("theBOSSDinosaur").style.transform =
-      "translate(-30%, -115%)";
+      "translate(82.5%, -100%)";
     document.getElementById("theBOSSDinosaur").style.transition =
       "transform 10s linear";
   }
@@ -107,6 +107,7 @@ function GameReset() {
   isDead = false;
   readyJump = true;
   deadNumber++;
+
   switch (deadNumber) {
     case 1:
       TextDetected(3);
@@ -118,20 +119,32 @@ function GameReset() {
       TextDetected(5);
       break;
   }
+
   dinoNumber = 0;
   getScore = 0;
-  document.getElementById("theDinosaur").style.transition = "none";
-  document.getElementById("TheCactus").style.transition = "none";
+
+  const dino = document.getElementById("theDinosaur");
+  const cactus = document.getElementById("TheCactus");
+
+  dino.style.transition = "none";
+  cactus.style.transition = "none";
+
   document.getElementById("resetButton").style.display = "none";
-  document.getElementById("theDinosaur").style.transform =
-    "translate(-85%, -173%)";
-  document.getElementById("TheCactus").style.top = "27%";
-  document.getElementById("theDinosaur").style.transition =
-    "transform 2s linear";
-  document.getElementById("TheCactus").style.transition = "top 0.2s linear";
+
+  // 對應 CSS：#theDinosaur → transform: translate(-70%, -150%);
+  dino.style.transform = "translate(-70%, -150%)";
+
+  // 對應 CSS：#TheCactus → top: 27%;
+  cactus.style.top = "29%";
+
+  // 恢復過渡動畫
+  dino.style.transition = "transform 2s linear";
+  cactus.style.transition = "top 0.2s linear";
+
   ResetDino();
   OnJump();
 }
+
 
 function PlayerDead() {
   isDead = true;
@@ -139,7 +152,7 @@ function PlayerDead() {
   document.getElementById("theDinosaur").style.transition = "none";
   document.getElementById("TheCactus").style.transition = "none";
   if (readyJump) {
-    document.getElementById("TheCactus").style.top = "27%";
+    document.getElementById("TheCactus").style.top = "29%";
   } else {
     document.getElementById("TheCactus").style.top = "12%";
   }
@@ -151,20 +164,24 @@ function PlayerDead() {
 }
 
 function ResetDino() {
-  var dinosaur = document.getElementById("theDinosaur");
-  dinosaur.style.transition = "none"; // 關動畫
-  if (dinoNumber == 0) {
-    dinosaur.style.transform = "translate(-85%, -173%)";
-  } else {
-    dinosaur.style.transform = "translate(-105%, -173%)";
-  }
-  // 瞬移
+  const dinosaur = document.getElementById("theDinosaur");
+  dinosaur.style.transition = "none"; // 關閉動畫，立即定位
 
+  if (dinoNumber === 0) {
+    // 預設位置（靠左一點）
+    dinosaur.style.transform = "translate(-70%, -150%)";
+  } else {
+    // 被擊中後後退一點
+    dinosaur.style.transform = "translate(-180%, -150%)";
+  }
+
+  // 稍後再讓恐龍回來跑
   setTimeout(() => {
-    dinosaur.style.transform = "translate(-0%, -173%)";
-    dinosaur.style.transition = "transform 2s linear"; // 稍後再打開動畫
+    dinosaur.style.transform = "translate(280%, -150%)";
+    dinosaur.style.transition = "transform 1.4s linear";
   }, 50);
 }
+
 
 function SetGetScore() {
   if (!isDead) {
